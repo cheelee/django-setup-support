@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block header %}
+    {% endblock header %}
+  </head>
+  <body>
+    <div class="container">
+      {% block body %}
+      {% endblock body %}
+    </div>
+    {% block js %}
+    {% endblock js %}
+  </body>
+  <footer>
+    {% block footer %}
+    {% endblock footer %}
+  </footer>
+</html>
