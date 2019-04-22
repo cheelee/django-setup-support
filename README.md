@@ -12,6 +12,12 @@ It is mostly to mitigate the frustration of moving to a new Django
 project a few months after a previous one, and then having to check
 documentation on the process of starting a fresh project.
 
+## Dependencies
+
+* Python 3.x
+* Availability of jQuery 3.4.0 (may require network connection at setup time)
+* Availability of Bootstrap 4 (may require network connection at setup time)
+
 ## Features
 
 Running setup.sh with a project name, and an app name (optional but a common use-case) will:
