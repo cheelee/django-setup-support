@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block header %}
-<title>Template Application: Main</title>
+<title>Template Application: Secure</title>
 {% endblock header %}
 
 {% block body %}
@@ -16,9 +16,12 @@
 </div>
 <hr>
 <div class="container">
-  <a class="btn btn-primary" href="{% url 'secure' %}">Secure Content</a>
+  <a class="btn btn-primary" href="{% url 'main' %}">Return to Main Page</a>
   <a class="btn btn-danger" href="{% url 'logout' %}">Logout</a>
 </div>
 <hr>
-<h1>Welcome!</h1>
+<h1>Secure Content</h1>
+<p>
+  Welcome! You are securely logged in.
+</p>
 {% endblock body %}
