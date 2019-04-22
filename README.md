@@ -46,6 +46,8 @@ link to a page for secure content.
 * cd myproject; python manage.py runserver
 * browse to 127.0.0.1:8000 to see main view (Jumbotron splash page)
 
+![Main Page](doc/images/Main.png)
+
 ## Todos
 
 * Currently none.
