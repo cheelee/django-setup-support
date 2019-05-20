@@ -36,8 +36,7 @@ python manage.py startapp $app
 cd $project
 cp ./settings.py ./settings.orig.py
 cp ./urls.py ./urls.orig.py
-sed -e "s/__MYAPPNAME__/$app/g" $setup_root/project_patch_settings.py > ./settings.py
-sed -i.bak -e "s/__MYPROJNAME__/$project/g" ./settings.py
+sed -e "s/__MYAPPNAME__/$app/g" -e "s/__MYPROJNAME__/$project/g" $setup_root/project_patch_settings.py > ./settings.py
 sed -e "s/__MYAPPNAME__/$app/g" $setup_root/project_patch_urls.py > ./urls.py
 cd ../$app
 # Set the new app's own URL paths, and new view. NOTE: this step is very fragile.
