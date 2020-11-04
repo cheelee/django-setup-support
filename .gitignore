@@ -1,0 +1,5 @@
+# VS Code settings ignored
+.vscode/
+
+# misc Mac OS X.
+.DS_Store

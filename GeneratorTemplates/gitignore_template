@@ -1,0 +1,15 @@
+# For use with the generated tool scaffold.
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django Static
+static-root/
+
+# VS Code settings ignored
+.vscode/
+
+# misc Mac OS X.
+.DS_Store

@@ -1,0 +1,10 @@
+from django.urls import path, include 
+
+from accounts.views import home_view
+
+# Overwrite instead of append, because we need the order to be correct.
+urlpatterns = [
+    path('', home_view),
+    path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls')),
+]
