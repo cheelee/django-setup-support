@@ -29,7 +29,7 @@ Coding For Entrepreneurs.
 * Navigate to target-folder.
 * pipenv shell
 * python manage.py runserver
-* browse to 127.0.0.1:8000.
+* browse to 127.0.0.1:8000
 
 ![Main Page](docs/figures/Main.png)
 
