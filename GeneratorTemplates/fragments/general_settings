@@ -1,4 +1,9 @@
+# DEBUG is expected to be set to true in an initial Django setup.
 
+
+# TODO: Tool developers can add their own apps here.
+# TODO: Tool developers can merge this variable with the default
+#   once they are satisfied things work as intended.
 INSTALLED_APPS += [
     # Third Party
     'rest_framework',
@@ -6,17 +11,19 @@ INSTALLED_APPS += [
     'accounts',
 ]
 
-TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, "templates")]
+# NOTE: In 3.2.15 LTS, Django has stopped using os.path (see our 
+#   2.2.16 LTS implementation for the differences.) 
+TEMPLATES[0]['DIRS'] = [ BASE_DIR / 'templates' ]
 
-# Development Only - serve static content from the Simulated server
+# Development Only - serve static content from a simulated server.
 if DEBUG:
     STATIC_URL = 'static/'
 
 # Specify default locations of static content for collectstatic.
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    BASE_DIR / 'static'
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, "static-root")
+STATIC_ROOT = BASE_DIR / 'static-root'
 
 # REST Framework Default Authenticator and Renderers
 

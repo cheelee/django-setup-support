@@ -1,17 +1,26 @@
-
+# TODO: The tool developers may wish to merge the include
+#    import from django.urls with the default import line
+#    for django.urls.
 from django.urls import include 
-from accounts.views import home_view
-
 from django.conf import settings
 from django.conf.urls.static import static
 
-# Overwrite instead of append, because we need the order to be correct.
+from accounts.views import home_view
+
+# We override the default urlpatterns variable instead of appending to it, 
+#   because we need the order of path resolution to be correct.
+#
+# TODO: The tool developers can and should merge the two after they are
+#   satisfied that things work as intended.
 urlpatterns = [
     path('', home_view),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
 ]
 
-# Development only - Simulated Static folder
+# For development use only - linkage to a local static folder.
+#
+# TODO: In production static content should be served from a proper host server,
+#   even if that server is local.
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

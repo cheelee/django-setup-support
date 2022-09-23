@@ -25,25 +25,33 @@ if [ $? -ne 0 ]; then
     exit -1
 fi 
 
-pipenv install django==2.2.16
+# Use pipenv to set up the essential Python packages
+pipenv install django==3.2.15
+pipenv install djangorestframework
+
+# Set up the basic standard Django structure with a default app for managing accounts.
 pipenv run django-admin startproject $project .
+pipenv run python manage.py startapp accounts
+
+# Populate newly created structure with frontend scaffold
 cp -R $template_root/static ./static
 cp -R $template_root/templates ./templates
 cp -R $template_root/rest_api $project/
 cp $template_root/gitignore_template .gitignore
 cp $template_root/Readme.md .
 
-pipenv run python manage.py startapp accounts
-cat $template_root/fragments/accounts_urls >> accounts/urls.py
+# Modify and populate backend structures with appropriate links to the frontend scaffold.
 cat $template_root/fragments/accounts_views >> accounts/views.py
+cat $template_root/fragments/accounts_urls >> accounts/urls.py
 cat $template_root/fragments/general_urls >> $project/urls.py
 
-pipenv install djangorestframework
 cat $template_root/fragments/general_settings | sed "s/__MYPROJECT__/$project/g" >> $project/settings.py
 mkdir static-root
 
+# Create and populate default sqlite database.
 pipenv run python manage.py migrate
-# If User Authentication Sub-system requested.
+
+# Default User Authentication Sub-system tied to the accounts app.
 # User will be prompted for name, email, and password
 pipenv run python manage.py createsuperuser
 pipenv run python manage.py collectstatic
