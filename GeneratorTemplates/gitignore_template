@@ -9,6 +9,7 @@ __pycache__/
 static-root/
 
 # VS Code settings ignored
+*.code-workspace
 .vscode/
 
 # misc Mac OS X.

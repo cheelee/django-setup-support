@@ -20,7 +20,7 @@ Coding For Entrepreneurs.
 
 * Python >=3.9
 * Pipenv >=2020.8.13
-* Django == 2.2.16 (LTS)
+* Django == 3.2.15 (LTS)
 
 ## Getting Started
 
